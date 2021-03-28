@@ -1,0 +1,174 @@
+.main {
+    margin-top: 50px;
+  }
+  .weather-panel {
+    background-image: url("http://localhost/weather247/assets/images/forest.jpg");
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 25px 25px 40px 0px rgba(0, 0, 0, 0.33);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s ease-in-out;
+  }
+  .weather-panel:hover{
+      transform: scale(1.02);
+      cursor: pointer;
+  }
+  .weather-panel small {
+    color: inherit;
+    font-size: 50%;
+  }
+  .weather-panel ul.forecast > li {
+      padding-top: 10px!important;
+    border-top: 1px solid #fff;
+  }
+  .weather-panel .temperature > span {
+    font-size: 50px;
+  }
+  @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
+  .searchBar {
+    position: absolute;
+    margin-top: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+  }
+  .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+  .search:hover {
+  cursor: pointer;
+}
+  .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+  .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.5s;
+}
+  input {
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: crimson;
+  color: white;
+  text-shadow: 0 0 10px crimson;
+  text-transform: uppercase;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+  input:hover {
+  cursor: pointer;
+}
+  input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+  input:focus ~ .search {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
+}
+  input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+  input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+  input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+   .modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+.widget.loading .modal {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+.widget.loading .modal {
+    display: block;
+}
